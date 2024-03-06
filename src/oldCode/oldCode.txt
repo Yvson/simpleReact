@@ -1,0 +1,23 @@
+{Object.entries(filledInputs()).map((obj) => {
+const [ key, value ] = obj;
+return (
+    <>
+    <h2>[{key}]</h2>
+    <p>{value}</p>
+    </>
+);
+})}
+
+<FormProvider {...methods}>
+<form onSubmit={methods.handleSubmit(onSubmit)}>
+    <JsonYamlInput
+    definition={{
+        name: "fieldName",
+        label: "label",
+        default: { name: "NAME", test: ["TEST", "TEST1"] },
+        required: true
+    }}
+    />
+    <input type="submit" />
+</form>
+</FormProvider>
