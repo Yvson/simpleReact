@@ -17,16 +17,6 @@ import { SimpleDisplay } from 'components/SimpleDisplay/SimpleDisplay';
 function App() {
   const [count, setCount] = useState(0);
   
-  
-  const methods = useForm();
-  const onSubmit = (data: any) => console.log(data);
-
-  const filledInputs = () => ({
-    "string": "string data",
-    "textarea": "textArea data",
-    "secure": "secure"
-  });
-
   useEffect(() => {
     console.log(`Counter: ${count}`);
   }, [count]);
