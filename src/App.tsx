@@ -1,44 +1,28 @@
 // React
-import { useEffect, useState } from 'react'
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Components
-import { JsonYamlInput } from 'components/JsonYamlInput/JsonYamlInput';
-
-// Files
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Home from 'components/Home';
+import Offering from 'components/Offering';
+import Service from 'components/Service';
 
 // Styles
 import './App.css'
-import { SimpleDisplay } from 'components/SimpleDisplay/SimpleDisplay';
 
 
 function App() {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    console.log(`Counter: ${count}`);
-  }, [count]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count => count + 1)}>Counter</button>
-
-      <h2>SimpleDisplay</h2>
-      <SimpleDisplay count={count} />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={ <Home /> } >
+          <Route path="offering">
+            <Route index path="*" element={ <Offering /> } />
+          </Route>
+        </Route>
+        <Route path="/service" element={ <Service /> } />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
